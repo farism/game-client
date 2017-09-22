@@ -1,0 +1,53 @@
+{
+  "name": "client",
+  "productName": "client",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start & elm-factory dev",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "lint": "eslint src"
+  },
+  "keywords": [],
+  "author": "farismustafa",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronWinstallerConfig": {
+        "name": "client"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "client"
+      }
+    }
+  },
+  "dependencies": {
+    "electron-compile": "^6.4.2"
+  },
+  "devDependencies": {
+    "electron-forge": "^4.0.2",
+    "electron-prebuilt-compile": "1.7.6",
+    "elm-factory": "^0.7.1"
+  }
+}

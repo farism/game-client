@@ -24,8 +24,9 @@ type alias User =
 
 
 type alias UserPresence =
-    { online_at : String
-    , device : String
+    { online_at :
+        Int
+        -- , device : String
     }
 
 
@@ -211,9 +212,12 @@ chatMessageDecoder =
 
 userPresenceDecoder : JD.Decoder UserPresence
 userPresenceDecoder =
-    JD.map2 UserPresence
-        (JD.field "online_at" JD.string)
-        (JD.field "device" JD.string)
+    JD.map UserPresence
+        (JD.field "online_at" JD.int)
+
+
+
+-- (JD.field "device" JD.string)
 
 
 viewMessage : ChatMessage -> Html Msg
